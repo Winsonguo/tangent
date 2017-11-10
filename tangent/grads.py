@@ -289,7 +289,19 @@ def maximum(ans, x, y):
   d[x] = d[ans] * tangent.balanced_eq(x, ans, y)
   d[y] = d[ans] * tangent.balanced_eq(y, ans, x)
 
+@adjoint(numpy.array)
+def aarray(ans,x):
+  d[x] = tangent.astype(d[ans],x)
 
+  
+@adjoint(numpy.linalg.det)
+def adet(z, x):
+  """d|A|/dA = adj(A).T
+
+  See  Jacobi's formula: https://en.wikipedia.org/wiki/Jacobi%27s_formula
+  """
+  adjugate = np.linalg.det(x) * np.linalg.pinv(x)
+  d[x] = adjugate.T
 #
 # Tangent adjoints
 #
