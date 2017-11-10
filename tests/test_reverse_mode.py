@@ -121,11 +121,6 @@ def test_grad_vector(func, motion, optimized, preserve_result, x):
   utils.test_reverse_array(func, motion, optimized, preserve_result, x)
 
 
-def test_grad_square_matrix(func, motion, optimized, preserve_result, sqm):
-  """Test gradients of square matrix functions."""
-  utils.test_reverse_array(func, motion, optimized, preserve_result, sqm)
-
-
 def test_grad_binary_int(func, motion, optimized, preserve_result, a, n):
   """Test gradients of functions with scalar and integer input."""
   utils.test_reverse_array(func, motion, optimized, preserve_result, a, n)

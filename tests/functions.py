@@ -42,10 +42,6 @@ def sum_(x):
   return np.sum(x)
 
 
-def cast_sum_(x):
-  return np.sum(np.array(x))
-
-
 def overwrite_call(x):
   x = np.sum(x)
   x = x * x
@@ -402,11 +398,6 @@ def logistic_regression(input, label, W, b):
   label_probabilities = prediction * label + (1 - prediction) * (1 - label)
   loss = -np.sum(np.log(label_probabilities))
   return loss
-
-
-def det(sqm):
-  return np.linalg.det(sqm)
-
 
 # ================================================
 # TFE grads
